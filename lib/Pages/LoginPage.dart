@@ -29,16 +29,16 @@ class _LoginPageState extends State<LoginPage> {
   void loadingDialog() {
     showDialog(
         context: context,
-        builder: (context) => AlertDialog(
-                content: Container(
-              height: double.infinity,
-              width: double.infinity,
-              color: Colors.transparent,
-              child: Center(child: CircularProgressIndicator()),
+        builder: (context) => const AlertDialog(
+                content: SizedBox(
+              child: Center(
+                  child: CircularProgressIndicator(
+                backgroundColor: Colors.red,
+              )),
             )));
   }
 
-  void displayMessage(BuildContext context, String message) {
+  void displayMessage(String message) {
     showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -51,10 +51,7 @@ class _LoginPageState extends State<LoginPage> {
     ApiResponse apiResponse =
         await firebaseApi.signIn(_username.text.trim(), _password.text.trim());
 
-    if (mounted) {
-      displayMessage(context, apiResponse.message.toString());
-    }
-    navigatorKey.currentState?.pop();
+    displayMessage(apiResponse.message.toString());
   }
 
   @override
@@ -80,13 +77,13 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(
               height: 20,
             ),
-             Text(
+            Text(
               S.of(context).welcome,
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
+              style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w500),
             ),
-             Text(
-            S.of(context).loginsentence,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
+            Text(
+              S.of(context).loginsentence,
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
             ),
             const SizedBox(
               height: 40,
@@ -99,10 +96,10 @@ class _LoginPageState extends State<LoginPage> {
               ),
               child: TextField(
                 controller: _username,
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   hintText: S.of(context).username,
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(10.0),
+                  contentPadding: const EdgeInsets.all(10.0),
                 ),
               ),
             ),
@@ -116,10 +113,10 @@ class _LoginPageState extends State<LoginPage> {
               child: TextField(
                 controller: _password,
                 obscureText: true,
-                decoration:  InputDecoration(
-                  hintText:S.of(context).password,
+                decoration: InputDecoration(
+                  hintText: S.of(context).password,
                   border: InputBorder.none,
-                  contentPadding: EdgeInsets.all(10.0),
+                  contentPadding: const EdgeInsets.all(10.0),
                 ),
               ),
             ),
@@ -135,15 +132,14 @@ class _LoginPageState extends State<LoginPage> {
                 height: MediaQuery.of(context).size.height * 0.07,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                    colors: [
-                      GlobalColors.mainColor, const Color(0xffc2d4f1)],
+                    colors: [GlobalColors.mainColor, const Color(0xffc2d4f1)],
                   ),
                   borderRadius: BorderRadius.circular(20.0),
                 ),
-                child:  Center(
+                child: Center(
                   child: Text(
-                  S.of(context).singin ,
-                    style: TextStyle(
+                    S.of(context).singin,
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w400),

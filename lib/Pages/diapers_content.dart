@@ -3,23 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kidsnursery/Utility/globalColors.dart';
 
-class FeedContent extends StatefulWidget {
+class DiapersContent extends StatefulWidget {
   final String userID;
-  const FeedContent({
+  const DiapersContent({
     Key? key,
     required this.userID,
   }) : super(key: key);
 
   @override
-  State<FeedContent> createState() => _FeedContentState();
+  State<DiapersContent> createState() => _DiapersContentState();
 }
 
-class _FeedContentState extends State<FeedContent> {
+class _DiapersContentState extends State<DiapersContent> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<DocumentSnapshot>(
       stream: FirebaseFirestore.instance
-          .collection('Attendance')
+          .collection('diapers')
           .doc(widget.userID)
           .snapshots(),
       builder: (context, snapshot) {
@@ -28,11 +28,11 @@ class _FeedContentState extends State<FeedContent> {
         }
 
         if (!snapshot.hasData || snapshot.data!.data() == null) {
-          return const Center(child: Text('No attendance data found.'));
+          return const Center(child: Text('No Diapers data found.'));
         }
 
         List<Map<String, dynamic>> attendanceHistory =
-            List<Map<String, dynamic>>.from(snapshot.data!['attendance']);
+            List<Map<String, dynamic>>.from(snapshot.data!['diapers']);
 
         Map<String, List<Widget>> groupedTiles = {};
         for (var attendanceEntry in attendanceHistory) {
@@ -75,9 +75,12 @@ class _FeedContentState extends State<FeedContent> {
               ? ListTile(
                   leading: CircleAvatar(
                       backgroundColor: GlobalColors.mainColor.withOpacity(0.1),
-                      child: const Icon(Icons.business_outlined)),
+                      child: const Icon(
+                        Icons.child_care_rounded,
+                        color: Colors.green,
+                      )),
                   title: Text(
-                      ' ${attendanceEntry['childName'].toString().isEmpty ? '' : attendanceEntry['childName']} ${attendanceEntry['type'].toString().isEmpty ? '' : attendanceEntry['type']} by system'),
+                      ' ${attendanceEntry['childName']} ${attendanceEntry['type'] ?? ''} by system'),
                   trailing: Text(" $formattedTime"),
                 )
               : Container());

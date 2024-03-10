@@ -3,23 +3,23 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kidsnursery/Utility/globalColors.dart';
 
-class FeedContent extends StatefulWidget {
+class HealthContent extends StatefulWidget {
   final String userID;
-  const FeedContent({
+  const HealthContent({
     Key? key,
     required this.userID,
   }) : super(key: key);
 
   @override
-  State<FeedContent> createState() => _FeedContentState();
+  State<HealthContent> createState() => _HealthContentState();
 }
 
-class _FeedContentState extends State<FeedContent> {
+class _HealthContentState extends State<HealthContent> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<DocumentSnapshot>(
       stream: FirebaseFirestore.instance
-          .collection('Attendance')
+          .collection('health')
           .doc(widget.userID)
           .snapshots(),
       builder: (context, snapshot) {
@@ -28,16 +28,16 @@ class _FeedContentState extends State<FeedContent> {
         }
 
         if (!snapshot.hasData || snapshot.data!.data() == null) {
-          return const Center(child: Text('No attendance data found.'));
+          return const Center(child: Text('No health data found.'));
         }
 
-        List<Map<String, dynamic>> attendanceHistory =
-            List<Map<String, dynamic>>.from(snapshot.data!['attendance']);
+        List<Map<String, dynamic>> healthHistory =
+            List<Map<String, dynamic>>.from(snapshot.data!['health']);
 
         Map<String, List<Widget>> groupedTiles = {};
-        for (var attendanceEntry in attendanceHistory) {
-          DateTime timestamp = attendanceEntry['timestamp'] != null
-              ? attendanceEntry['timestamp'].toDate()
+        for (var healthEntry in healthHistory) {
+          DateTime timestamp = healthEntry['timestamp'] != null
+              ? healthEntry['timestamp'].toDate()
               : DateTime.now();
           String formattedDate = DateFormat('dd/MM/yyyy').format(timestamp);
           String formattedTime = DateFormat('HH:mm EEE').format(timestamp);
@@ -71,13 +71,22 @@ class _FeedContentState extends State<FeedContent> {
           if (!groupedTiles.containsKey(key)) {
             groupedTiles[key] = [];
           }
-          groupedTiles[key]!.add(attendanceEntry['childName'] != null
+          groupedTiles[key]!.add(healthEntry['childName'] != null
               ? ListTile(
                   leading: CircleAvatar(
                       backgroundColor: GlobalColors.mainColor.withOpacity(0.1),
-                      child: const Icon(Icons.business_outlined)),
-                  title: Text(
-                      ' ${attendanceEntry['childName'].toString().isEmpty ? '' : attendanceEntry['childName']} ${attendanceEntry['type'].toString().isEmpty ? '' : attendanceEntry['type']} by system'),
+                      child: const Icon(
+                        Icons.health_and_safety_outlined,
+                        color: Colors.red,
+                      )),
+                  title: Text(' ${healthEntry['childName']} '),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Body temperature: ${healthEntry['Message']}' ?? ''),
+                      Text('Medicine : ${healthEntry['medicine']} ')
+                    ],
+                  ),
                   trailing: Text(" $formattedTime"),
                 )
               : Container());

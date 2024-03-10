@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:kidsnursery/Models/children.dart';
 import 'package:kidsnursery/Models/user.dart';
 import 'package:kidsnursery/Pages/FeedContent.dart';
+import 'package:kidsnursery/Pages/diapers_content.dart';
+import 'package:kidsnursery/Pages/health_content.dart';
 import 'package:kidsnursery/Pages/meals_content.dart';
 import 'package:kidsnursery/Utility/globalColors.dart';
 import 'package:kidsnursery/Widgets/BottomNavBar.dart';
@@ -40,17 +42,17 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Colors.white,
-                Colors.lightGreen.withOpacity(0.1),
-                Colors.lightBlue.withOpacity(0.1),
-                Colors.pink.withOpacity(0.1),
-              ],
-            ),
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.white,
+              Colors.lightGreen.withOpacity(0.1),
+              Colors.lightBlue.withOpacity(0.1),
+              Colors.pink.withOpacity(0.1),
+            ],
           ),
+        ),
         child: SafeArea(
           child: Column(
             children: [
@@ -58,11 +60,8 @@ class _HomePageState extends State<HomePage>
                 height: 15,
               ),
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  const SizedBox(
-                    width: 25,
-                  ),
-               
                   Column(
                     children: [
                       Text(
@@ -75,9 +74,6 @@ class _HomePageState extends State<HomePage>
                         style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                     ],
-                  ),
-                  const SizedBox(
-                    width: 150,
                   ),
                   SizedBox(
                       height: 80,
@@ -99,7 +95,9 @@ class _HomePageState extends State<HomePage>
               ),
               Row(
                 children: [
-                  SizedBox(width: 10,),
+                  const SizedBox(
+                    width: 10,
+                  ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.9,
                     height: MediaQuery.of(context).size.height * 0.04,
@@ -107,11 +105,13 @@ class _HomePageState extends State<HomePage>
                       unselectedLabelColor: Colors.grey,
                       labelColor: Colors.white,
                       dividerHeight: 0,
-              indicatorSize: TabBarIndicatorSize.tab ,
+                      indicatorSize: TabBarIndicatorSize.tab,
                       indicatorColor: GlobalColors.mainColor,
-                      indicator:  BoxDecoration(shape: BoxShape.rectangle,color: GlobalColors.mainColor.withOpacity(0.5)),
+                      indicator: BoxDecoration(
+                          shape: BoxShape.rectangle,
+                          color: GlobalColors.mainColor.withOpacity(0.5)),
                       controller: _tabController,
-                      tabs:  [
+                      tabs: [
                         Tab(text: S.of(context).feed),
                         Tab(text: S.of(context).meals),
                         Tab(text: S.of(context).health),
@@ -130,12 +130,8 @@ class _HomePageState extends State<HomePage>
                   children: [
                     FeedContent(userID: widget.user.userId),
                     MealsContent(userID: widget.user.userId),
-                    Container(
-                      child: Text("gey"),
-                    ),
-                    Container(
-                      child: Text("hh"),
-                    )
+                    HealthContent(userID: widget.user.userId),
+                    DiapersContent(userID: widget.user.userId)
                   ],
                 ),
               ),
