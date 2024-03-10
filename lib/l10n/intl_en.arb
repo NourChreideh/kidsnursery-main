@@ -1,0 +1,44 @@
+{
+    
+  
+    "welcome":"Welcome!",
+    "loginsentence":"please Login with your Account",
+    "username":"Username",
+    "password":"Password",
+    "singin":"Sign In",
+
+
+    "unpaid":"Unpaid Services",
+    "children":"Children",
+    "settings":"Settings",
+    "notifications":"Notifications",
+    "signout":"Sign Out",
+
+
+"allnotifications":"All Notifications",
+"checkin":"Check-in",
+"checkout":"Check-out",
+"food":"Food",
+  
+
+"home":"Home",
+"inbox":"Inbox",
+"center":"Center",
+"profile":"Profile",
+
+ "today":"Today",
+ "yesterday":"Yesterday",
+ "name":"Name",
+ "mealstaken":"Meals taken",
+ "daysago":"days ago",
+ "meals":"Meals",
+ "feed":"Feed",
+ "health":"Health",
+ "Diapers":"Diapers",
+ "adress":"Addresses",
+ "contactinfo":"Contact information"
+
+
+
+
+}

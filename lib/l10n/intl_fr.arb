@@ -1,0 +1,41 @@
+{
+
+    "welcome": "Bienvenue!",
+    "loginsentence": "Veuillez vous connecter avec votre compte",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "singin": "Se connecter",
+    
+    "unpaid": "Services impayés",
+    "children": "Enfants",
+    "settings": "Paramètres",
+    "notifications": "Notifications",
+    "signout": "Se déconnecter",
+    
+    "allnotifications": "Toutes les notifications",
+    "checkin": "Arrivée",
+    "checkout": "Départ",
+    "food": "Nourriture",
+    
+    "home": "Accueil",
+    "inbox": "Boîte de réception",
+    "center": "Centre",
+    "profile": "Profil",
+    
+    "today": "Aujourd'hui",
+    "yesterday": "Hier",
+    "name": "Nom",
+    "mealstaken": "Repas pris",
+    "daysago": "jours auparavant",
+    "meals": "Repas",
+    "feed": "Alimentation",
+    "health": "Santé",
+    "diapers": "Couches",
+    "address": "Adresses",
+    "contactinfo": "Informations de contact"
+    
+
+
+
+
+}
