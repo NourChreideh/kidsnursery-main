@@ -31,11 +31,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactinfo":
             MessageLookupByLibrary.simpleMessage("Informations de contact"),
         "daysago": MessageLookupByLibrary.simpleMessage("jours auparavant"),
+        "diapers": MessageLookupByLibrary.simpleMessage("Couches"),
         "feed": MessageLookupByLibrary.simpleMessage("Alimentation"),
         "food": MessageLookupByLibrary.simpleMessage("Nourriture"),
         "health": MessageLookupByLibrary.simpleMessage("Santé"),
         "home": MessageLookupByLibrary.simpleMessage("Accueil"),
-        "inbox": MessageLookupByLibrary.simpleMessage("Boîte de réception"),
+        "inbox": MessageLookupByLibrary.simpleMessage("réception"),
+        "language": MessageLookupByLibrary.simpleMessage("langue"),
         "loginsentence": MessageLookupByLibrary.simpleMessage(
             "Veuillez vous connecter avec votre compte"),
         "meals": MessageLookupByLibrary.simpleMessage("Repas"),
@@ -49,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "singin": MessageLookupByLibrary.simpleMessage("Se connecter"),
         "today": MessageLookupByLibrary.simpleMessage("Aujourd\'hui"),
         "unpaid": MessageLookupByLibrary.simpleMessage("Services impayés"),
+        "updatedbysystem":
+            MessageLookupByLibrary.simpleMessage("mis à jour par le système"),
         "username": MessageLookupByLibrary.simpleMessage("Nom d\'utilisateur"),
         "welcome": MessageLookupByLibrary.simpleMessage("Bienvenue!"),
         "yesterday": MessageLookupByLibrary.simpleMessage("Hier")

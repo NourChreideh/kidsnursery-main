@@ -18,7 +18,7 @@
     "food": "Nourriture",
     
     "home": "Accueil",
-    "inbox": "Boîte de réception",
+    "inbox": "réception",
     "center": "Centre",
     "profile": "Profil",
     
@@ -32,7 +32,9 @@
     "health": "Santé",
     "diapers": "Couches",
     "address": "Adresses",
-    "contactinfo": "Informations de contact"
+    "contactinfo": "Informations de contact",
+    "language":"langue",
+    "updatedbysystem":"mis à jour par le système"
     
 
 

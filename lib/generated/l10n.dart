@@ -311,10 +311,10 @@ class S {
   }
 
   /// `Diapers`
-  String get Diapers {
+  String get diapers {
     return Intl.message(
       'Diapers',
-      name: 'Diapers',
+      name: 'diapers',
       desc: '',
       args: [],
     );
@@ -335,6 +335,26 @@ class S {
     return Intl.message(
       'Contact information',
       name: 'contactinfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `updated by system`
+  String get updatedbysystem {
+    return Intl.message(
+      'updated by system',
+      name: 'updatedbysystem',
       desc: '',
       args: [],
     );

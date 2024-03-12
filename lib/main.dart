@@ -9,9 +9,14 @@ import 'package:kidsnursery/Pages/CenterPage.dart';
 import 'package:kidsnursery/Pages/HomePage.dart';
 import 'package:kidsnursery/Pages/LoginPage.dart';
 import 'package:kidsnursery/Network/firebase_options.dart';
+import 'package:kidsnursery/Utility/localeprovider.dart';
 import 'package:kidsnursery/generated/l10n.dart';
+import 'package:kidsnursery/l10n/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+late Function restartApp;
+String language = "en";
+
 
 final FirebaseApi firebaseApi = FirebaseApi();
 late final SharedPref sharedPref;
@@ -29,6 +34,9 @@ void main() async {
     ChangeNotifierProvider(
       create: (context) => CurrentChildren(),
     ),
+    ChangeNotifierProvider(
+        create: (context) => LocaleProvider(),
+        ),
     ChangeNotifierProvider(create: (context) => CurrentUser())
   ], child: const MyApp()));
 }
@@ -38,37 +46,42 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      //locale: Locale('fr'),
-      localizationsDelegates: [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.delegate.supportedLocales,
-      navigatorKey: navigatorKey,
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      home: FutureBuilder<StatefulWidget>(
-        future: firebaseApi.checkAndNavigateUser(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            // Show a loading indicator while waiting for the future to complete
-            return Scaffold(
-              body: Center(
-                child: Image.asset('assets/logo.png'),
-              ),
-            );
-          } else if (snapshot.hasError) {
-            // Handle error if the future encountered an error
-            return const LoginPage();
-          } else {
-            // Future completed successfully, no errors
-            return snapshot.data ??
-                Container(); // Return an empty container or any other widget
-          }
-        },
+   final provider = Provider.of<LocaleProvider>(context);
+    return Container(
+         key: Key(DateTime.now().toString()),
+      child: MaterialApp(
+     
+        localizationsDelegates: [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+              ],
+                locale: provider.locale,
+            supportedLocales: L10n.all,
+        navigatorKey: navigatorKey,
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        home: FutureBuilder<StatefulWidget>(
+          future: firebaseApi.checkAndNavigateUser(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+             
+              return Scaffold(
+                body: Center(
+                  child: Image.asset('assets/logo.png'),
+                ),
+              );
+            } else if (snapshot.hasError) {
+              // Handle error if the future encountered an error
+              return const LoginPage();
+            } else {
+              // Future completed successfully, no errors
+              return snapshot.data ??
+                  Container(); // Return an empty container or any other widget
+            }
+          },
+        ),
       ),
     );
   }

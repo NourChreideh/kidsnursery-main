@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage>
                         Tab(text: S.of(context).feed),
                         Tab(text: S.of(context).meals),
                         Tab(text: S.of(context).health),
-                        Tab(text: S.of(context).Diapers),
+                        Tab(text: S.of(context).diapers),
                       ],
                     ),
                   ),

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kidsnursery/Utility/globalColors.dart';
+import 'package:kidsnursery/generated/l10n.dart';
 
 class FeedContent extends StatefulWidget {
   final String userID;
@@ -77,7 +78,7 @@ class _FeedContentState extends State<FeedContent> {
                       backgroundColor: GlobalColors.mainColor.withOpacity(0.1),
                       child: const Icon(Icons.business_outlined)),
                   title: Text(
-                      ' ${attendanceEntry['childName'].toString().isEmpty ? '' : attendanceEntry['childName']} ${attendanceEntry['type'].toString().isEmpty ? '' : attendanceEntry['type']} by system'),
+                      ' ${attendanceEntry['childName'].toString().isEmpty ? '' : attendanceEntry['childName']} ${attendanceEntry['type'].toString().isEmpty ? '' : attendanceEntry['type']} ${S.of(context).updatedbysystem}'),
                   trailing: Text(" $formattedTime"),
                 )
               : Container());

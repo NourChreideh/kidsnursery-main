@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:kidsnursery/Utility/globalColors.dart';
+import 'package:kidsnursery/generated/l10n.dart';
 
 class DiapersContent extends StatefulWidget {
   final String userID;
@@ -80,7 +81,7 @@ class _DiapersContentState extends State<DiapersContent> {
                         color: Colors.green,
                       )),
                   title: Text(
-                      ' ${attendanceEntry['childName']} ${attendanceEntry['type'] ?? ''} by system'),
+                      ' ${attendanceEntry['childName']} ${S.of(context).diapers} ${S.of(context).updatedbysystem}'),
                   trailing: Text(" $formattedTime"),
                 )
               : Container());

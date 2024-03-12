@@ -6,6 +6,8 @@ import 'package:kidsnursery/Models/user.dart';
 import 'package:kidsnursery/Network/firebase_api.dart';
 import 'package:kidsnursery/Pages/Notification_Settings.dart';
 import 'package:kidsnursery/Pages/childrens_view.dart';
+
+import 'package:kidsnursery/Pages/language_picker_widget.dart';
 import 'package:kidsnursery/Utility/globalColors.dart';
 import 'package:kidsnursery/Widgets/BottomNavBar.dart';
 import 'package:kidsnursery/generated/l10n.dart';
@@ -33,10 +35,8 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xfff8faf9),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Container(
-                      decoration: BoxDecoration(
+      body: Container(
+                   decoration: BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
@@ -48,6 +48,8 @@ class _ProfilePageState extends State<ProfilePage> {
               ],
             ),
           ),
+        child: SafeArea(
+          child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
@@ -180,7 +182,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               width: 15,
                             ),
                             Text(
-S.of(context).children,
+            S.of(context).children,
                               style: const TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w500),
                             ),
@@ -243,7 +245,7 @@ S.of(context).children,
                               width: 5,
                             ),
                              Text(
-                            S.of(context).children ,
+                            S.of(context).settings ,
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w500),
                             ),
@@ -282,6 +284,34 @@ S.of(context).children,
                               )
                             ],
                           ),
+                        ),
+                         const SizedBox(
+                          height: 10,
+                        ),
+                        const Divider(),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 15,
+                            ),
+                            Icon(Icons.language),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                             S.of(context).language,
+                              style: TextStyle(
+                                  fontSize: 15, color: Colors.black87),
+                            ),
+                            Spacer(),
+                               LanguagePickerWidget(),
+                            SizedBox(
+                              width: 10,
+                            )
+                          ],
                         ),
                         const SizedBox(
                           height: 15,

@@ -77,7 +77,7 @@ class _MealsContentState extends State<MealsContent> {
               leading: CircleAvatar(
                 backgroundColor: GlobalColors.mainColor.withOpacity(0.5),
                 child: Icon(Icons.restaurant)),
-              title: Text('${S.of(context).name}: ${attendanceEntry['childName']}'),
+              title: Text(' ${attendanceEntry['childName']}'),
               subtitle: attendanceEntry['type'] == null
                   ? null
                   : Text(

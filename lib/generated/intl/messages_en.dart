@@ -22,7 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "Diapers": MessageLookupByLibrary.simpleMessage("Diapers"),
         "adress": MessageLookupByLibrary.simpleMessage("Addresses"),
         "allnotifications":
             MessageLookupByLibrary.simpleMessage("All Notifications"),
@@ -33,11 +32,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "contactinfo":
             MessageLookupByLibrary.simpleMessage("Contact information"),
         "daysago": MessageLookupByLibrary.simpleMessage("days ago"),
+        "diapers": MessageLookupByLibrary.simpleMessage("Diapers"),
         "feed": MessageLookupByLibrary.simpleMessage("Feed"),
         "food": MessageLookupByLibrary.simpleMessage("Food"),
         "health": MessageLookupByLibrary.simpleMessage("Health"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "inbox": MessageLookupByLibrary.simpleMessage("Inbox"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
         "loginsentence": MessageLookupByLibrary.simpleMessage(
             "please Login with your Account"),
         "meals": MessageLookupByLibrary.simpleMessage("Meals"),
@@ -51,6 +52,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "singin": MessageLookupByLibrary.simpleMessage("Sign In"),
         "today": MessageLookupByLibrary.simpleMessage("Today"),
         "unpaid": MessageLookupByLibrary.simpleMessage("Unpaid Services"),
+        "updatedbysystem":
+            MessageLookupByLibrary.simpleMessage("updated by system"),
         "username": MessageLookupByLibrary.simpleMessage("Username"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome!"),
         "yesterday": MessageLookupByLibrary.simpleMessage("Yesterday")

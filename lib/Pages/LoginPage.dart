@@ -29,13 +29,15 @@ class _LoginPageState extends State<LoginPage> {
   void loadingDialog() {
     showDialog(
         context: context,
-        builder: (context) => const AlertDialog(
-                content: SizedBox(
-              child: Center(
-                  child: CircularProgressIndicator(
-                backgroundColor: Colors.red,
-              )),
-            )));
+        builder: (context) =>  Container(
+          height: 10,
+          width: 50,
+          child: Center(
+            child: CircularProgressIndicator(
+                      backgroundColor: Colors.red,
+                    ),
+          ),
+        ));
   }
 
   void displayMessage(String message) {

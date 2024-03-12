@@ -34,9 +34,11 @@
  "meals":"Meals",
  "feed":"Feed",
  "health":"Health",
- "Diapers":"Diapers",
+ "diapers":"Diapers",
  "adress":"Addresses",
- "contactinfo":"Contact information"
+ "contactinfo":"Contact information",
+ "language":"Language",
+ "updatedbysystem":"updated by system"
 
 
 
