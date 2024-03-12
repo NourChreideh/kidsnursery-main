@@ -29,15 +29,15 @@ class _LoginPageState extends State<LoginPage> {
   void loadingDialog() {
     showDialog(
         context: context,
-        builder: (context) =>  Container(
-          height: 10,
-          width: 50,
-          child: Center(
-            child: CircularProgressIndicator(
-                      backgroundColor: Colors.red,
-                    ),
-          ),
-        ));
+        builder: (context) => const SizedBox(
+              height: 10,
+              width: 50,
+              child: Center(
+                child: CircularProgressIndicator(
+                  backgroundColor: Colors.red,
+                ),
+              ),
+            ));
   }
 
   void displayMessage(String message) {
@@ -50,8 +50,8 @@ class _LoginPageState extends State<LoginPage> {
 
   void loggin(BuildContext context) async {
     loadingDialog();
-    ApiResponse apiResponse =
-        await firebaseApi.signIn(_username.text.trim(), _password.text.trim());
+    ApiResponse apiResponse = await firebaseApi.signInWithPhoneNumber(
+        _username.text.trim(), _password.text.trim());
 
     displayMessage(apiResponse.message.toString());
   }

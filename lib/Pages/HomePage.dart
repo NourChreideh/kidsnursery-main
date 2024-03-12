@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kidsnursery/Models/children.dart';
 import 'package:kidsnursery/Models/user.dart';
 import 'package:kidsnursery/Pages/FeedContent.dart';
+import 'package:kidsnursery/Pages/activities_content.dart';
 import 'package:kidsnursery/Pages/diapers_content.dart';
 import 'package:kidsnursery/Pages/health_content.dart';
 import 'package:kidsnursery/Pages/meals_content.dart';
@@ -27,7 +28,7 @@ class _HomePageState extends State<HomePage>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 5, vsync: this);
   }
 
   @override
@@ -116,6 +117,7 @@ class _HomePageState extends State<HomePage>
                         Tab(text: S.of(context).meals),
                         Tab(text: S.of(context).health),
                         Tab(text: S.of(context).diapers),
+                        Tab(text: S.of(context).activities)
                       ],
                     ),
                   ),
@@ -131,7 +133,8 @@ class _HomePageState extends State<HomePage>
                     FeedContent(userID: widget.user.userId),
                     MealsContent(userID: widget.user.userId),
                     HealthContent(userID: widget.user.userId),
-                    DiapersContent(userID: widget.user.userId)
+                    DiapersContent(userID: widget.user.userId),
+                    ActivitiesContent(userID: widget.user.userId),
                   ],
                 ),
               ),

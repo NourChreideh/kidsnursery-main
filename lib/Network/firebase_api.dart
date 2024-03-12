@@ -31,6 +31,41 @@ class FirebaseApi {
             ));
   }
 
+  Future<ApiResponse> signInWithPhoneNumber(
+      String phoneNumber, String password) async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email:
+            '$phoneNumber@kidsnursery.com', // Use a dummy email format for phone number login
+        password: password,
+      );
+
+      if (userCredential.user != null) {
+        final userDoc = await _firestore
+            .collection('Users')
+            .doc(userCredential.user!.uid)
+            .get();
+        if (userDoc.exists) {
+          sharedPref.login();
+          Users users = await fetchUser(userCredential.user!);
+          await _setUpFirebaseMessaging(userCredential.user!);
+
+          navigatorKey.currentState?.pushReplacement(MaterialPageRoute(
+              builder: ((context) => HomePage(
+                    user: users,
+                  ))));
+
+          return ApiResponse(Status.COMPLETED, null, 'Logged in Successfully');
+        }
+      }
+    } on FirebaseAuthException catch (e) {
+      print('Error signing in: $e');
+      return ApiResponse(Status.ERROR, null, e.code);
+    }
+    navigatorKey.currentState?.pop();
+    return ApiResponse(Status.ERROR, null, 'Error');
+  }
+
   Future<ApiResponse> signIn(String email, String password) async {
     try {
       UserCredential userCredential = await _auth.signInWithEmailAndPassword(
@@ -46,7 +81,6 @@ class FirebaseApi {
             .get();
         print('UserDocuments are999999$userDoc');
         if (userDoc.exists) {
-        
           // implememnt the need fo this login such as navigate to the homeScreen\
           sharedPref.login();
           // final currentUser = FirebaseAuth.instance.currentUser;

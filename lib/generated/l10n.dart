@@ -319,6 +319,15 @@ class S {
       args: [],
     );
   }
+   /// `Activities`
+  String get activities {
+    return Intl.message(
+      'Activities',
+      name: 'activities',
+      desc: '',
+      args: [],
+    );
+  }
 
   /// `Addresses`
   String get adress {
