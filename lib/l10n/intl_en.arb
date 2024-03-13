@@ -38,7 +38,9 @@
  "adress":"Addresses",
  "contactinfo":"Contact information",
  "language":"Language",
- "updatedbysystem":"updated by system"
+ "updatedbysystem":"updated by system",
+ "activities":"Activities",
+ "phonenumber":"Phone Number"
 
 
 

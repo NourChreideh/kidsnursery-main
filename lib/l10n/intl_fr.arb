@@ -34,7 +34,9 @@
     "address": "Adresses",
     "contactinfo": "Informations de contact",
     "language":"langue",
-    "updatedbysystem":"mis à jour par le système"
+    "updatedbysystem":"mis à jour par le système",
+    "activities":"Activités",
+    "phonenumber":"numéro de téléphone"
     
 
 

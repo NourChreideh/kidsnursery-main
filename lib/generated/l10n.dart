@@ -319,15 +319,6 @@ class S {
       args: [],
     );
   }
-   /// `Activities`
-  String get activities {
-    return Intl.message(
-      'Activities',
-      name: 'activities',
-      desc: '',
-      args: [],
-    );
-  }
 
   /// `Addresses`
   String get adress {
@@ -364,6 +355,26 @@ class S {
     return Intl.message(
       'updated by system',
       name: 'updatedbysystem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Activities`
+  String get activities {
+    return Intl.message(
+      'Activities',
+      name: 'activities',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phonenumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phonenumber',
       desc: '',
       args: [],
     );
