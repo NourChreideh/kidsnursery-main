@@ -290,11 +290,11 @@ class S {
     );
   }
 
-  /// `Feed`
-  String get feed {
+  /// `Attendance`
+  String get attendance {
     return Intl.message(
-      'Feed',
-      name: 'feed',
+      'Attendance',
+      name: 'attendance',
       desc: '',
       args: [],
     );
@@ -320,10 +320,10 @@ class S {
     );
   }
 
-  /// `Addresses`
+  /// `Address`
   String get adress {
     return Intl.message(
-      'Addresses',
+      'Address',
       name: 'adress',
       desc: '',
       args: [],

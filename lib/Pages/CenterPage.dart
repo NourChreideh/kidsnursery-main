@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:kidsnursery/Models/user.dart';
 import 'package:kidsnursery/Utility/globalColors.dart';
@@ -24,18 +25,18 @@ class _CenterPageState extends State<CenterPage> {
     return Scaffold(
       backgroundColor: const Color(0xfff8faf9),
       body: Container(
-                  decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              colors: [
-                Colors.white,
-                Colors.lightGreen.withOpacity(0.1),
-                Colors.lightBlue.withOpacity(0.1),
-                Colors.pink.withOpacity(0.1),
-              ],
-            ),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+            colors: [
+              Colors.white,
+              Colors.lightGreen.withOpacity(0.1),
+              Colors.lightBlue.withOpacity(0.1),
+              Colors.pink.withOpacity(0.1),
+            ],
           ),
+        ),
         child: SafeArea(
           child: Column(
             children: [
@@ -91,26 +92,30 @@ class _CenterPageState extends State<CenterPage> {
                 padding: const EdgeInsets.only(right: 10, left: 10),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.3), // Set the shadow color
-                      spreadRadius: 1,
-                      blurRadius: 1,
-                      offset: const Offset(0, 1),
-                    ),
-                  ], borderRadius: BorderRadius.circular(5), color: Colors.white),
+                  decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey
+                              .withOpacity(0.3), // Set the shadow color
+                          spreadRadius: 1,
+                          blurRadius: 1,
+                          offset: const Offset(0, 1),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.white),
                   child: Column(
                     children: [
                       const SizedBox(
                         height: 5,
                       ),
-                       Row(
+                      Row(
                         children: [
                           SizedBox(
                             width: 15,
                           ),
                           Text(
-                          S.of(context).adress,
+                            S.of(context).adress,
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.w500),
                           ),
@@ -119,25 +124,31 @@ class _CenterPageState extends State<CenterPage> {
                       const SizedBox(
                         height: 5,
                       ),
-                      const Row(
+                       Row(
                         children: [
                           SizedBox(
                             width: 15,
                           ),
-                          Icon(
-                            Icons.home_outlined,
-                            size: 28,
-                            color: Colors.black54,
+                          Image.asset(
+                            "assets/home-address.png",
+                            height: 20,
+                            width: 20,
                           ),
+                       
                           SizedBox(
                             width: 5,
                           ),
                           Text(
-                            "123 Free Trail Way ,Demonstration,\nVirginia,23265,USA",
-                            style: TextStyle(fontSize: 15, color: Colors.black54),
+                            "Facing Saydet Zgharta Universal Hospital",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.black54),
                           ),
                         ],
                       ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      
                       const SizedBox(
                         height: 5,
                       ),
@@ -145,35 +156,84 @@ class _CenterPageState extends State<CenterPage> {
                       const SizedBox(
                         height: 5,
                       ),
-                       Row(
+                      Row(
                         children: [
                           SizedBox(
                             width: 15,
                           ),
                           Text(
-                         S.of(context).contactinfo,
+                            S.of(context).contactinfo,
                             style: TextStyle(
                                 fontSize: 22, fontWeight: FontWeight.w500),
                           ),
                         ],
+                      ),
+                      const SizedBox(
+                        height: 10,
                       ),
                       Row(
                         children: [
                           const SizedBox(
                             width: 15,
                           ),
-                          const Text("@",
-                              style: TextStyle(
-                                  color: Colors.black54,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w600)),
-                          const SizedBox(
-                            width: 5,
+                          Image.asset(
+                            "assets/telephone.png",
+                            height: 20,
+                            width: 20,
                           ),
-                          Text(
-                            "linettesimseamv@gmail.com",
-                            style: TextStyle(
-                                fontSize: 15, color: GlobalColors.mainColor),
+                               const SizedBox(
+                            width: 15,
+                          ),
+                           Text(
+                            "71 876 183",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.black54),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Image.asset(
+                            "assets/insta.png",
+                            height: 20,
+                            width: 20,
+                          ),
+                               const SizedBox(
+                            width: 15,
+                          ),
+                           Text(
+                            "little_talent_childcare",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.black54),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          const SizedBox(
+                            width: 15,
+                          ),
+                          Image.asset(
+                            "assets/facebook.png",
+                            height: 20,
+                            width: 20,
+                          ),
+                               const SizedBox(
+                            width: 15,
+                          ),
+                           Text(
+                            "little talent childcare",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.black54),
                           ),
                         ],
                       ),
@@ -199,10 +259,7 @@ class _CenterPageState extends State<CenterPage> {
                       const SizedBox(
                         height: 5,
                       ),
-                      DayOpen("Sundays:"),
-                      const SizedBox(
-                        height: 3,
-                      ),
+                   
                       DayOpen("Mondays:"),
                       const SizedBox(
                         height: 3,
@@ -223,10 +280,7 @@ class _CenterPageState extends State<CenterPage> {
                       const SizedBox(
                         height: 3,
                       ),
-                      DayOpen("Saturdays:"),
-                      const SizedBox(
-                        height: 5,
-                      ),
+                     
                       const Divider(),
                       const SizedBox(
                         height: 5,
@@ -246,28 +300,17 @@ class _CenterPageState extends State<CenterPage> {
                       const SizedBox(
                         height: 5,
                       ),
+                  
+                   
                       const Row(
                         children: [
                           SizedBox(
                             width: 15,
                           ),
                           Text(
-                            "2024",
-                            style: TextStyle(fontSize: 15, color: Colors.black54),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      const Row(
-                        children: [
-                          SizedBox(
-                            width: 15,
-                          ),
-                          Text(
-                            "No closed days in 2024",
-                            style: TextStyle(fontSize: 15, color: Colors.black54),
+                            "Saturday and Sunday",
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.black54),
                           ),
                         ],
                       ),
@@ -302,7 +345,7 @@ Widget DayOpen(String day) {
       ),
       const Spacer(),
       const Text(
-        "3:00 AM-10:00 PM",
+        "7:00 AM - 02:20 PM",
         style: TextStyle(fontSize: 15, color: Colors.black54),
       ),
       const SizedBox(

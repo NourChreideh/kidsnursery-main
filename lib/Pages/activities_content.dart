@@ -76,8 +76,7 @@ class _ActivitiesContentState extends State<ActivitiesContent> {
               ? ListTile(
                   leading: CircleAvatar(
                       backgroundColor: GlobalColors.mainColor.withOpacity(0.1),
-                      child: const Icon(Icons.volunteer_activism,
-                          color: Colors.pinkAccent)),
+                      child:Image.asset("assets/lifestyle.png")),
                   title: Text(' ${activityEntry['childName']} '),
                   subtitle: Text('Activity: ${activityEntry['activity']} '),
                   trailing: Text(" $formattedTime"),

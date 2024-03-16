@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "activities": MessageLookupByLibrary.simpleMessage("Activités"),
         "allnotifications":
             MessageLookupByLibrary.simpleMessage("Toutes les notifications"),
+        "attendance": MessageLookupByLibrary.simpleMessage("présence"),
         "center": MessageLookupByLibrary.simpleMessage("Centre"),
         "checkin": MessageLookupByLibrary.simpleMessage("Arrivée"),
         "checkout": MessageLookupByLibrary.simpleMessage("Départ"),
@@ -33,7 +34,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Informations de contact"),
         "daysago": MessageLookupByLibrary.simpleMessage("jours auparavant"),
         "diapers": MessageLookupByLibrary.simpleMessage("Couches"),
-        "feed": MessageLookupByLibrary.simpleMessage("Alimentation"),
         "food": MessageLookupByLibrary.simpleMessage("Nourriture"),
         "health": MessageLookupByLibrary.simpleMessage("Santé"),
         "home": MessageLookupByLibrary.simpleMessage("Accueil"),

@@ -76,10 +76,7 @@ class _DiapersContentState extends State<DiapersContent> {
               ? ListTile(
                   leading: CircleAvatar(
                       backgroundColor: GlobalColors.mainColor.withOpacity(0.1),
-                      child: const Icon(
-                        Icons.child_care_rounded,
-                        color: Colors.green,
-                      )),
+                      child: Image.asset("assets/diapers.png")),
                   title: Text(
                       ' ${attendanceEntry['childName']} ${S.of(context).diapers} ${S.of(context).updatedbysystem}'),
                   trailing: Text(" $formattedTime"),

@@ -76,7 +76,7 @@ class _FeedContentState extends State<FeedContent> {
               ? ListTile(
                   leading: CircleAvatar(
                       backgroundColor: GlobalColors.mainColor.withOpacity(0.1),
-                      child: const Icon(Icons.business_outlined)),
+                      child:Image.asset("assets/calendar.png") ),
                   title: Text(
                       ' ${attendanceEntry['childName'].toString().isEmpty ? '' : attendanceEntry['childName']} ${attendanceEntry['type'].toString().isEmpty ? '' : attendanceEntry['type']} ${S.of(context).updatedbysystem}'),
                   trailing: Text(" $formattedTime"),

@@ -32,10 +32,11 @@
  "mealstaken":"Meals taken",
  "daysago":"days ago",
  "meals":"Meals",
- "feed":"Feed",
+ "attendance":"Attendance",
  "health":"Health",
  "diapers":"Diapers",
- "adress":"Addresses",
+ 
+ "adress":"Address",
  "contactinfo":"Contact information",
  "language":"Language",
  "updatedbysystem":"updated by system",
