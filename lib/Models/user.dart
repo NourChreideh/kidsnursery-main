@@ -60,7 +60,7 @@ class Users {
 
 class CurrentUser extends ChangeNotifier {
   Users? user;
-  void currentChildren(Users user) {
+  void currentUser(Users user) {
     this.user = user;
     notifyListeners();
   }

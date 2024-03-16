@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cron/cron.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -14,15 +16,18 @@ import 'package:kidsnursery/generated/l10n.dart';
 import 'package:kidsnursery/l10n/l10n.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:workmanager/workmanager.dart';
+
+
 late Function restartApp;
 String language = "en";
-
 
 final FirebaseApi firebaseApi = FirebaseApi();
 late final SharedPref sharedPref;
 final navigatorKey = GlobalKey<NavigatorState>();
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -30,13 +35,14 @@ void main() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   sharedPref = SharedPref(prefs);
   await firebaseApi.initnotification();
+
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(
       create: (context) => CurrentChildren(),
     ),
     ChangeNotifierProvider(
-        create: (context) => LocaleProvider(),
-        ),
+      create: (context) => LocaleProvider(),
+    ),
     ChangeNotifierProvider(create: (context) => CurrentUser())
   ], child: const MyApp()));
 }
@@ -46,19 +52,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   final provider = Provider.of<LocaleProvider>(context);
+    final provider = Provider.of<LocaleProvider>(context);
     return Container(
-         key: Key(DateTime.now().toString()),
+      key: Key(DateTime.now().toString()),
       child: MaterialApp(
-     
-        localizationsDelegates: [
-                  S.delegate,
-                  GlobalMaterialLocalizations.delegate,
-                  GlobalWidgetsLocalizations.delegate,
-                  GlobalCupertinoLocalizations.delegate,
-              ],
-                locale: provider.locale,
-            supportedLocales: L10n.all,
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        locale: provider.locale,
+        supportedLocales: L10n.all,
         navigatorKey: navigatorKey,
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
@@ -66,7 +71,6 @@ class MyApp extends StatelessWidget {
           future: firebaseApi.checkAndNavigateUser(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-             
               return Scaffold(
                 body: Center(
                   child: Image.asset('assets/logo.png'),

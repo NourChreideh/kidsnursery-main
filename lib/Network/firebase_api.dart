@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cron/cron.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +9,14 @@ import 'package:kidsnursery/Models/children.dart';
 import 'package:kidsnursery/Models/user.dart';
 import 'package:kidsnursery/Network/Response/ApiResponse.dart';
 import 'package:kidsnursery/Network/Response/Status.dart';
+import 'package:kidsnursery/Network/Response/resetData.dart';
 import 'package:kidsnursery/Network/messageReferesh.dart';
 import 'package:kidsnursery/Pages/HomePage.dart';
 import 'package:kidsnursery/Pages/LoginPage.dart';
 import 'package:kidsnursery/Pages/ProfilePage.dart';
 import 'package:kidsnursery/main.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:workmanager/workmanager.dart';
 
 class FirebaseApi {
   final _firebasemessaging = FirebaseMessaging.instance;
@@ -21,6 +24,7 @@ class FirebaseApi {
   final currentUser = FirebaseAuth.instance.currentUser;
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   void loadingDialog(BuildContext context) {
     showDialog(
         context: context,
@@ -49,7 +53,7 @@ class FirebaseApi {
           sharedPref.login();
           Users users = await fetchUser(userCredential.user!);
           await _setUpFirebaseMessaging(userCredential.user!);
-
+          scheduleTask(users);
           navigatorKey.currentState?.pushReplacement(MaterialPageRoute(
               builder: ((context) => HomePage(
                     user: users,
@@ -167,11 +171,14 @@ class FirebaseApi {
     final currentUser = FirebaseAuth.instance.currentUser;
     if (sharedPref.isLoggedIn()) {
       final userDoc = await fetchUser(currentUser!);
+      scheduleTask(userDoc);
       return HomePage(user: userDoc);
     } else {
       return const LoginPage();
     }
   }
+
+  // Initialize Workmanager in your app
 }
 
 Future<void> handlemessage(RemoteMessage message) async {
