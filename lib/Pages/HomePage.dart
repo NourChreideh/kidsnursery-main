@@ -112,24 +112,27 @@ class _HomePageState extends State<HomePage>
                     width: 10,
                   ),
                   Expanded(
-                    child: TabBar(
-                      unselectedLabelColor: Colors.grey,
-                      labelColor: Colors.white,
-                      dividerHeight: 0,
-                      labelStyle: TextStyle(fontSize: 12),
-                      indicatorSize: TabBarIndicatorSize.tab,
-                      indicatorColor: GlobalColors.mainColor,
-                      indicator: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: GlobalColors.mainColor.withOpacity(0.5)),
-                      controller: _tabController,
-                      tabs: [
-                        Tab(text: S.of(context).attendance),
-                        Tab(text: S.of(context).meals),
-                        Tab(text: S.of(context).health),
-                        Tab(text: S.of(context).diapers),
-                        Tab(text: S.of(context).activities)
-                      ],
+                    child: SizedBox(
+                      height: 35,
+                      child: TabBar(
+                        unselectedLabelColor: Colors.grey,
+                        labelColor: Colors.white,
+                        dividerHeight: 0,
+                        labelStyle: TextStyle(fontSize: 12),
+                        indicatorSize: TabBarIndicatorSize.tab,
+                        indicatorColor: GlobalColors.mainColor,
+                        indicator: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            color: GlobalColors.mainColor.withOpacity(0.5)),
+                        controller: _tabController,
+                        tabs: [
+                          Tab(text: S.of(context).attendance),
+                          Tab(text: S.of(context).meals),
+                          Tab(text: S.of(context).health),
+                          Tab(text: S.of(context).diapers),
+                          Tab(text: S.of(context).activities)
+                        ],
+                      ),
                     ),
                   ),
                 ],

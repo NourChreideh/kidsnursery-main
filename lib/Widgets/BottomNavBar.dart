@@ -3,9 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:kidsnursery/generated/l10n.dart';
-import 'package:provider/provider.dart';
-
-import 'package:kidsnursery/Models/children.dart';
 import 'package:kidsnursery/Models/user.dart';
 import 'package:kidsnursery/Pages/CenterPage.dart';
 import 'package:kidsnursery/Pages/HomePage.dart';
