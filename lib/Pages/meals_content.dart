@@ -76,7 +76,7 @@ class _MealsContentState extends State<MealsContent> {
                   ? Container() :ListTile(
               leading: CircleAvatar(
                 backgroundColor: GlobalColors.mainColor.withOpacity(0.5),
-                child: Icon(Icons.restaurant)),
+                child: Image.asset("assets/food.png")),
               title: Text(' ${attendanceEntry['childName']}'),
               subtitle: attendanceEntry['type'] == null
                   ? null

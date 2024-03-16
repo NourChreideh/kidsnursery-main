@@ -290,11 +290,11 @@ class S {
     );
   }
 
-  /// `Feed`
-  String get feed {
+  /// `Attendance`
+  String get attendance {
     return Intl.message(
-      'Feed',
-      name: 'feed',
+      'Attendance',
+      name: 'attendance',
       desc: '',
       args: [],
     );
@@ -319,20 +319,11 @@ class S {
       args: [],
     );
   }
-   /// `Activities`
-  String get activities {
-    return Intl.message(
-      'Activities',
-      name: 'activities',
-      desc: '',
-      args: [],
-    );
-  }
 
-  /// `Addresses`
+  /// `Address`
   String get adress {
     return Intl.message(
-      'Addresses',
+      'Address',
       name: 'adress',
       desc: '',
       args: [],
@@ -364,6 +355,26 @@ class S {
     return Intl.message(
       'updated by system',
       name: 'updatedbysystem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Activities`
+  String get activities {
+    return Intl.message(
+      'Activities',
+      name: 'activities',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone Number`
+  String get phonenumber {
+    return Intl.message(
+      'Phone Number',
+      name: 'phonenumber',
       desc: '',
       args: [],
     );

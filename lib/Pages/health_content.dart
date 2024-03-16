@@ -75,10 +75,7 @@ class _HealthContentState extends State<HealthContent> {
               ? ListTile(
                   leading: CircleAvatar(
                       backgroundColor: GlobalColors.mainColor.withOpacity(0.1),
-                      child: const Icon(
-                        Icons.health_and_safety_outlined,
-                        color: Colors.red,
-                      )),
+                      child:Image.asset("assets/vaccination.png")),
                   title: Text(' ${healthEntry['childName']} '),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

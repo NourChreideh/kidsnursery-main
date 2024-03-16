@@ -22,9 +22,11 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "adress": MessageLookupByLibrary.simpleMessage("Addresses"),
+        "activities": MessageLookupByLibrary.simpleMessage("Activities"),
+        "adress": MessageLookupByLibrary.simpleMessage("Address"),
         "allnotifications":
             MessageLookupByLibrary.simpleMessage("All Notifications"),
+        "attendance": MessageLookupByLibrary.simpleMessage("Attendance"),
         "center": MessageLookupByLibrary.simpleMessage("Center"),
         "checkin": MessageLookupByLibrary.simpleMessage("Check-in"),
         "checkout": MessageLookupByLibrary.simpleMessage("Check-out"),
@@ -33,7 +35,6 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Contact information"),
         "daysago": MessageLookupByLibrary.simpleMessage("days ago"),
         "diapers": MessageLookupByLibrary.simpleMessage("Diapers"),
-        "feed": MessageLookupByLibrary.simpleMessage("Feed"),
         "food": MessageLookupByLibrary.simpleMessage("Food"),
         "health": MessageLookupByLibrary.simpleMessage("Health"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
@@ -46,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "phonenumber": MessageLookupByLibrary.simpleMessage("Phone Number"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signout": MessageLookupByLibrary.simpleMessage("Sign Out"),

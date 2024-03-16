@@ -46,7 +46,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
   void _onItemTapped(int index) {
     switch (index) {
       case 0:
-        Navigator.pushReplacement(
+        Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => HomePage(
@@ -54,11 +54,11 @@ class _CustomNavBarState extends State<CustomNavBar> {
                     )));
         break;
       case 1:
-        Navigator.pushReplacement(context,
+        Navigator.push(context,
             MaterialPageRoute(builder: (context) => InboxScreen(user: user)));
         break;
       case 2:
-        Navigator.pushReplacement(
+        Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => CenterPage(
@@ -66,7 +66,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
                     )));
         break;
       case 3:
-        Navigator.pushReplacement(
+        Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => ProfilePage(

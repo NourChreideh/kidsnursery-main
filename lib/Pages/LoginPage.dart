@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
               child: TextField(
                 controller: _username,
                 decoration: InputDecoration(
-                  hintText: S.of(context).username,
+                  hintText: S.of(context).phonenumber,
                   border: InputBorder.none,
                   contentPadding: const EdgeInsets.all(10.0),
                 ),

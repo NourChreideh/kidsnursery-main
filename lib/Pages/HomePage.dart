@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:kidsnursery/Models/children.dart';
 import 'package:kidsnursery/Models/user.dart';
-import 'package:kidsnursery/Pages/FeedContent.dart';
+import 'package:kidsnursery/Pages/AttendancePage.dart';
+import 'package:kidsnursery/Pages/ProfilePage.dart';
 import 'package:kidsnursery/Pages/activities_content.dart';
 import 'package:kidsnursery/Pages/diapers_content.dart';
 import 'package:kidsnursery/Pages/health_content.dart';
@@ -70,9 +72,19 @@ class _HomePageState extends State<HomePage>
                         style: const TextStyle(
                             fontSize: 23, fontWeight: FontWeight.w400),
                       ),
-                      const Text(
-                        "View Profile",
-                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                      GestureDetector(
+                        onTap: () {
+                            Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ProfilePage(
+                      user: widget.user,
+                    )));
+                        },
+                        child: const Text(
+                          "View Profile",
+                          style: TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
                       ),
                     ],
                   ),
@@ -99,13 +111,12 @@ class _HomePageState extends State<HomePage>
                   const SizedBox(
                     width: 10,
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.9,
-                    height: MediaQuery.of(context).size.height * 0.04,
+                  Expanded(
                     child: TabBar(
                       unselectedLabelColor: Colors.grey,
                       labelColor: Colors.white,
                       dividerHeight: 0,
+                      labelStyle: TextStyle(fontSize: 12),
                       indicatorSize: TabBarIndicatorSize.tab,
                       indicatorColor: GlobalColors.mainColor,
                       indicator: BoxDecoration(
@@ -113,7 +124,7 @@ class _HomePageState extends State<HomePage>
                           color: GlobalColors.mainColor.withOpacity(0.5)),
                       controller: _tabController,
                       tabs: [
-                        Tab(text: S.of(context).feed),
+                        Tab(text: S.of(context).attendance),
                         Tab(text: S.of(context).meals),
                         Tab(text: S.of(context).health),
                         Tab(text: S.of(context).diapers),
