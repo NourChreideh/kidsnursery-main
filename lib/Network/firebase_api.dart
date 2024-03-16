@@ -171,7 +171,7 @@ class FirebaseApi {
     final currentUser = FirebaseAuth.instance.currentUser;
     if (sharedPref.isLoggedIn()) {
       final userDoc = await fetchUser(currentUser!);
-      scheduleTask(userDoc);
+
       return HomePage(user: userDoc);
     } else {
       return const LoginPage();
